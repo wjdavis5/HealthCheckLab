@@ -29,7 +29,7 @@ public class HealthController : ControllerBase
 
     private async Task<bool> CheckDbConnection()
     {
-        var connectionString = "Server=localhost,1433;Database=master;User Id=sa;Password=yourStrong(!)Password;";
+        var connectionString = "Server=localhost,1433;Database=master;User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=true";
         using var connection = new SqlConnection(connectionString);
         try
         {
