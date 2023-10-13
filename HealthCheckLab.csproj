@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.Diagnostics.HealthChecks.Background" Version="0.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.12" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
