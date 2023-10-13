@@ -32,7 +32,7 @@ builder.Services.AddBackgroundHealthChecks(builder.Configuration)
             tags: new string[] { "simple" })
             .Services.Configure<HealthCheckPublisherOptions>(options =>
         {
-            options.Delay = TimeSpan.FromSeconds(2);
+            options.Period = TimeSpan.FromSeconds(10);
         });
 
 var app = builder.Build();
