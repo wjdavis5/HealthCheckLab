@@ -2,7 +2,6 @@ using Azure.Storage.Blobs;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -11,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //dotnet add package AspNetCore.HealthChecks.SqlServer --version 7.0.0
 
-builder.Services.AddHealthChecks()
+builder.Services.AddBackgroundHealthChecks(builder.Configuration)
     .AddSqlServer(
         options: new HealthChecks.SqlServer.SqlServerHealthCheckOptions()
         {
