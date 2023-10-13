@@ -22,18 +22,18 @@ builder.Services.AddBackgroundHealthChecks(builder.Configuration)
         tags: new string[] { "db", "sql", "sqlserver" },
         timeout: TimeSpan.FromSeconds(5)
         )
-        .AddAzureBlobStorage(
-            connectionString: "AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;",
-            containerName: "test",
-            name: "AzureStorage")
-        .AddCheck<SimpleHealthCheck>(
-            "Simple",
-            failureStatus: HealthStatus.Degraded,
-            tags: new string[] { "simple" })
-            .Services.Configure<HealthCheckPublisherOptions>(options =>
-        {
-            options.Period = TimeSpan.FromSeconds(10);
-        });
+    .AddAzureBlobStorage(
+        connectionString: "AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;",
+        containerName: "test",
+        name: "AzureStorage")
+    .AddCheck<SimpleHealthCheck>(
+        "Simple",
+        failureStatus: HealthStatus.Degraded,
+        tags: new string[] { "simple" })
+    .Services.Configure<HealthCheckPublisherOptions>(options =>
+    {
+        options.Period = TimeSpan.FromSeconds(10);
+    });
 
 var app = builder.Build();
 app.MapBackgroundHealthChecks("/health");
