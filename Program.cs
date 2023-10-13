@@ -28,7 +28,7 @@ builder.Services.AddBackgroundHealthChecks(builder.Configuration)
             name: "AzureStorage");
 
 var app = builder.Build();
-app.MapHealthChecks("/health");
+app.MapBackgroundHealthChecks("/health");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
