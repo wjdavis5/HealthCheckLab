@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //dotnet add package AspNetCore.HealthChecks.SqlServer --version 7.0.0
-
+//https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks
 builder.Services.AddHealthChecks()
     .AddSqlServer(
         options: new HealthChecks.SqlServer.SqlServerHealthCheckOptions()
